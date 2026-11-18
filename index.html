@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus Study Group Finder | UniBz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>UniBz <strong>StudyFinder</strong></span>
+            </div>
+            <nav>
+                <a href="index.html" class="active"><i class="fa-solid fa-compass"></i> Explore Groups</a>
+                <a href="create-group.html"><i class="fa-solid fa-plus-circle"></i> Create Group</a>
+                <a href="login.html" id="nav-login"><i class="fa-solid fa-user-check"></i> Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Find & Join Study Groups at UniBz</h1>
+                <p>Connect with peers taking the same courses, reserve study desks, and prepare for exams together.</p>
+            </div>
+        </section>
+
+        <!-- US3: Search & Filter Study Groups -->
+        <section class="search-box-card">
+            <div class="search-inputs">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search by course code or topic (e.g. 27000, Agile, Math)..." onkeyup="filterGroups()">
+                </div>
+                <div class="select-group">
+                    <select id="campusFilter" onchange="filterGroups()">
+                        <option value="ALL">All Campuses / Locations</option>
+                        <option value="Bozen Main Library">Bozen Main Library</option>
+                        <option value="NOI Techpark">NOI Techpark</option>
+                        <option value="Brixen Campus">Brixen Campus</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Groups Grid -->
+        <section class="groups-section">
+            <div class="section-header">
+                <h2>Active Study Sessions <span id="groupCountBadge" class="badge">0</span></h2>
+                <div class="user-status-pill" id="userStatusPill">
+                    <i class="fa-solid fa-circle-user"></i> <span id="currentUsername">Not logged in</span>
+                </div>
+            </div>
+
+            <div class="groups-grid" id="groupsGrid">
+                <!-- Dynamic group cards loaded by app.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Free University of Bozen-Bolzano (UniBz) | Agile Software Engineering Project (Sprint 1 MVP)</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

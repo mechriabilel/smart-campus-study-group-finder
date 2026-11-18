@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Study Group | Smart Campus Study Group Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>UniBz <strong>StudyFinder</strong></span>
+            </div>
+            <nav>
+                <a href="index.html"><i class="fa-solid fa-compass"></i> Explore Groups</a>
+                <a href="create-group.html" class="active"><i class="fa-solid fa-plus-circle"></i> Create Group</a>
+                <a href="login.html"><i class="fa-solid fa-user-check"></i> Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container form-layout-container">
+        <!-- US2: Create Study Group -->
+        <div class="form-card wide-card">
+            <div class="form-header">
+                <i class="fa-solid fa-users-rectangle auth-icon"></i>
+                <h2>Create a New Study Group (US2)</h2>
+                <p>Host a study session for your course and invite fellow UniBz classmates.</p>
+            </div>
+
+            <form id="createGroupForm" onsubmit="handleCreateGroup(event)">
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="courseCode"><i class="fa-solid fa-hashtag"></i> Course Code</label>
+                        <input type="text" id="courseCode" placeholder="e.g. 27000 (Agile Methods)" required>
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="groupTopic"><i class="fa-solid fa-book-open"></i> Topic / Group Title</label>
+                        <input type="text" id="groupTopic" placeholder="e.g. Exam Sprint & BDD Review" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="location"><i class="fa-solid fa-location-dot"></i> Campus Location</label>
+                        <select id="location" required>
+                            <option value="">Select Location...</option>
+                            <option value="Bozen Main Library - Floor 2">Bozen Main Library - Floor 2</option>
+                            <option value="NOI Techpark - Room A1.02">NOI Techpark - Room A1.02</option>
+                            <option value="Brixen Campus - Study Room B">Brixen Campus - Study Room B</option>
+                            <option value="Online via MS Teams">Online via MS Teams</option>
+                        </select>
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="sessionTime"><i class="fa-solid fa-clock"></i> Date & Time</label>
+                        <input type="datetime-local" id="sessionTime" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="maxMembers"><i class="fa-solid fa-users"></i> Max Capacity (Members)</label>
+                        <input type="number" id="maxMembers" min="2" max="10" value="5" required>
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="groupCategory"><i class="fa-solid fa-tags"></i> Category</label>
+                        <select id="groupCategory">
+                            <option value="Exam Prep">Exam Prep</option>
+                            <option value="Lab Work & Coding">Lab Work & Coding</option>
+                            <option value="Group Project">Group Project</option>
+                            <option value="Homework Review">Homework Review</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="groupDescription"><i class="fa-solid fa-align-left"></i> Description & Objectives</label>
+                    <textarea id="groupDescription" rows="3" placeholder="Briefly describe what you plan to cover in this session..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">
+                    <i class="fa-solid fa-rocket"></i> Publish Study Group
+                </button>
+            </form>
+
+            <div id="createAlert" class="alert alert-success hidden">
+                <i class="fa-solid fa-circle-check"></i> Study group successfully created and listed! Redirecting to Explore page...
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Free University of Bozen-Bolzano (UniBz) | Agile Software Engineering Project</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

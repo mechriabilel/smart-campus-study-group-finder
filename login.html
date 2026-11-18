@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | Smart Campus Study Group Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>UniBz <strong>StudyFinder</strong></span>
+            </div>
+            <nav>
+                <a href="index.html"><i class="fa-solid fa-compass"></i> Explore Groups</a>
+                <a href="create-group.html"><i class="fa-solid fa-plus-circle"></i> Create Group</a>
+                <a href="login.html" class="active"><i class="fa-solid fa-user-check"></i> Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container auth-container">
+        <!-- US1: Student Authentication -->
+        <div class="form-card">
+            <div class="form-header">
+                <i class="fa-solid fa-user-shield auth-icon"></i>
+                <h2>Student Authentication (US1)</h2>
+                <p>Log in with your official UniBz credentials to create and join study groups.</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="studentName"><i class="fa-solid fa-user"></i> Full Name</label>
+                    <input type="text" id="studentName" placeholder="e.g. Mechria Bilel" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail"><i class="fa-solid fa-envelope"></i> UniBz Email Address</label>
+                    <input type="email" id="studentEmail" placeholder="e.g. Bmechria@unibz.it" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentId"><i class="fa-solid fa-id-card"></i> Student Matricola / ID</label>
+                    <input type="text" id="studentId" placeholder="e.g. 27229" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-right-to-bracket"></i> Authenticate & Continue
+                </button>
+            </form>
+
+            <div id="loginAlert" class="alert alert-success hidden">
+                <i class="fa-solid fa-circle-check"></i> Successfully authenticated! Redirecting to Explore page...
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Free University of Bozen-Bolzano (UniBz) | Agile Software Engineering Project</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
